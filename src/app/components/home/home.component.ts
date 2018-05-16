@@ -8,28 +8,24 @@ import { GlobalErrorHandler } from '../../models/global-error-handler';
 })
 export class HomeComponent implements OnInit {
 
-  errorText:string;
+  errorText: string;
 
-  constructor(private dataservice: DataService, private globalErrorHandler:GlobalErrorHandler) { }
+  constructor(private dataservice: DataService, private globalErrorHandler: GlobalErrorHandler) { }
 
   ngOnInit() {
-    
-    this.dataservice.getData(1).subscribe((data)=>{
-      
-      if(data['userId']==1){
-        //console.log('works');
-        this.errorText = this.globalErrorHandler.handleError('01-20-01-0200-accountLocked');
-        
+
+    this.dataservice.getData(1).subscribe((data) => {
+      // this is just dummy test
+      if (data['userId'] == 1) {
+        this.errorText = this.globalErrorHandler.handleError(4);
       }
-      else{
+      else {
         console.log('Successful');
       }
     },
-    (error)=> this.errorText = this.globalErrorHandler.handleError(error)
-    //(error)=>console.log(error.status) 
-  )
-    
-    
+      (error) => this.errorText = this.globalErrorHandler.handleError(error)
+      //(error)=>console.log(error.status) 
+    )
   }
 
 }
