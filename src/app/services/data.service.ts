@@ -13,7 +13,15 @@ export class DataService {
   }
 
   authenticateUser(username: string, password: string) {
-    return this.http.get('https://dpt-gatewaydev11.canadaeast.cloudapp.azure.com/user/login');
+    return this.http.post('https://dpt-gatewaydev11.canadaeast.cloudapp.azure.com/user/login',
+      {
+        "username": username,
+        "password": password,
+        "realm": "ROGERS",
+        "type": "EXTERNAL",
+        "language": "en"
+      }
+    );
   }
 
 }
