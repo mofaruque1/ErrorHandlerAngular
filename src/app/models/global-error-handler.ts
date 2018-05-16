@@ -4,6 +4,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 //Link : https://angular.io/guide/http
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
+
+    errorMessage: string;
+
     constructor() {
 
     }
@@ -12,19 +15,36 @@ export class GlobalErrorHandler implements ErrorHandler {
         if (error instanceof HttpErrorResponse) {
 
             if (error.status / 100 == 4) {
-                return 'Client Side Error with status code : ' + error.status;
+                this.errorMessage = 'Client Side Error with status code : ' + error.status;
             }
             else if (error.status / 100 == 5) {
-                return 'Server Side Error with status code : ' + error.status;
+                this.errorMessage = 'Server Side Error with status code : ' + error.status;
             }
             else {
-                return 'Unknown Error';
+                this.errorMessage = 'Unknown Error';
             }
         }
         else {
-            console.log('some other error');
+            switch (error) {
+                case 1:
+                    this.errorMessage = 'Your entries must match';
+                    break;
+                case 2:
+                    this.errorMessage = 'Please enter a wireless phone number';
+                    break;
+                case 3:
+                    this.errorMessage = 'Phone number must be 10 digits';
+                    break;
+                case 4:
+                    this.errorMessage = 'Please enter 7-digit code';
+                    break;
+                default:
+                    this.errorMessage = 'Unknown Error';
+            }
 
         }
+
+        return this.errorMessage;
 
     }
 }
