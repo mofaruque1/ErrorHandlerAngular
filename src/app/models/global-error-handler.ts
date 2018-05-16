@@ -38,6 +38,7 @@ export class GlobalErrorHandler implements ErrorHandler {
                 case 4:
                     this.errorMessage = 'Please enter 7-digit code';
                     break;
+                    /* Can add more case depending on the requiremnet*/
                 default:
                     this.errorMessage = 'Unknown Error : '+ error.status;
             }
