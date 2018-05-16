@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private dataservice: DataService, private globalErrorHandler: GlobalErrorHandler) { }
 
   ngOnInit() {
-    //this.testErrorHandler();
-    this.authentication("DSO8888@mailinator.com","rogers123");
+    this.testErrorHandler();
+    //this.authentication("DSO8888@mailinator.com","rogers123");
   }
 
 

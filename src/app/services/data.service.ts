@@ -9,7 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData(postId: number) {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts/' + postId);
+    return this.http.get('https://jsonplaceholder.typicode.com/poss/' + postId);
   }
 
   authenticateUser(username: string, password: string) {
