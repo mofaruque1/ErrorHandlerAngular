@@ -10,13 +10,16 @@ export class HomeComponent implements OnInit {
 
   errorText: string;
 
+
   constructor(private dataservice: DataService, private globalErrorHandler: GlobalErrorHandler) { }
 
   ngOnInit() {
 
-    this.dataservice.getData(1).subscribe((data) => {
+    this.dataservice.getData(400).subscribe((data) => {
+      console.log(data);
+      
       // this is just dummy test
-      if (data['userId'] == 1) {
+      if (data['id'] == 1) {
         this.errorText = this.globalErrorHandler.handleError(4);
       }
       else {

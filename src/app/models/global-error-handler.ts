@@ -21,7 +21,7 @@ export class GlobalErrorHandler implements ErrorHandler {
                 this.errorMessage = 'Server Side Error with status code : ' + error.status;
             }
             else {
-                this.errorMessage = 'Unknown Error';
+                this.errorMessage = 'Unknown Error : '+ error.status;
             }
         }
         else {
@@ -39,7 +39,7 @@ export class GlobalErrorHandler implements ErrorHandler {
                     this.errorMessage = 'Please enter 7-digit code';
                     break;
                 default:
-                    this.errorMessage = 'Unknown Error';
+                    this.errorMessage = 'Unknown Error : '+ error.status;
             }
 
         }
