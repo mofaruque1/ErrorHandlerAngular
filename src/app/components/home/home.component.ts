@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     //this.testErrorHandler();
-    this.authenticateUser('DSO8888@mailinator.com','rogers123');
+    this.authentication("DSO8888@mailinator.com","rogers123");
   }
 
 
   // Authenticate user given name and password 
-  authenticateUser(name: string, password: string) {
+  authentication(name: string, password: string) {
 
     this.dataservice.authenticateUser(name,password).subscribe((data)=>{
       console.log(data);

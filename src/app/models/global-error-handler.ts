@@ -2,6 +2,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 //Link : https://angular.io/guide/http
+//Link : https://medium.com/codingthesmartway-com-blog/angular-4-3-httpclient-accessing-rest-web-services-with-angular-2305b8fd654b
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
 
@@ -21,7 +22,7 @@ export class GlobalErrorHandler implements ErrorHandler {
                 this.errorMessage = 'Server Side Error with status code : ' + error.status;
             }
             else {
-                this.errorMessage = 'Unknown Error : '+ error.status;
+                this.errorMessage = 'Unknown Error from HttpErrorResponse : '+ error.status;
             }
         }
         else {
