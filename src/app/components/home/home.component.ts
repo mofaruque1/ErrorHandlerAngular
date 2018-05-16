@@ -21,19 +21,21 @@ export class HomeComponent implements OnInit {
 
 
   // Authenticate user given name and password 
-  authentication(name: string, password: string) {
+  // authentication(name: string, password: string) {
 
-    this.dataservice.authenticateUser(name,password).subscribe((data)=>{
-      console.log(data);
-    },
-    (error) => this.errorText = this.globalErrorHandler.handleError(error))
-  }
+  //   this.dataservice.authenticateUser(name,password).subscribe((data)=>{
+  //     console.log(data);
+  //   },
+  //   (error) => this.errorText = this.globalErrorHandler.handleError(error))
+  // }
 
 
   // Test if the Global error handler works  
 
   testErrorHandler() {
-    this.dataservice.getData(400).subscribe((data) => {
+    this.dataservice.getData(1).subscribe((data) => {
+      console.log(data);
+      
       if (data['id'] == 1) {
         this.errorText = this.globalErrorHandler.handleError(4);
       }
