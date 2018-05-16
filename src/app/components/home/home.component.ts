@@ -9,16 +9,31 @@ import { GlobalErrorHandler } from '../../models/global-error-handler';
 export class HomeComponent implements OnInit {
 
   errorText: string;
+  responseText: string; //from authenticating user
 
 
   constructor(private dataservice: DataService, private globalErrorHandler: GlobalErrorHandler) { }
 
   ngOnInit() {
+    //this.testErrorHandler();
+    this.authenticateUser('DSO8888@mailinator.com','rogers123');
+  }
 
-    this.dataservice.getData(400).subscribe((data) => {
+
+  // Authenticate user given name and password 
+  authenticateUser(name: string, password: string) {
+
+    this.dataservice.authenticateUser(name,password).subscribe((data)=>{
       console.log(data);
-      
-      // this is just dummy test
+    },
+    (error) => this.errorText = this.globalErrorHandler.handleError(error))
+  }
+
+
+  // Test if the Global error handler works  
+
+  testErrorHandler() {
+    this.dataservice.getData(400).subscribe((data) => {
       if (data['id'] == 1) {
         this.errorText = this.globalErrorHandler.handleError(4);
       }
