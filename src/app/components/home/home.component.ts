@@ -14,14 +14,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     
-    this.dataservice.getData(1000).subscribe((data)=>{
+    this.dataservice.getData(1).subscribe((data)=>{
       
       if(data['userId']==1){
-        console.log('works');
+        //console.log('works');
+        this.errorText = this.globalErrorHandler.handleError('01-20-01-0200-accountLocked');
         
       }
       else{
-        console.log('doesnot');
+        console.log('Successful');
       }
     },
     (error)=> this.errorText = this.globalErrorHandler.handleError(error)

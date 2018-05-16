@@ -31,6 +31,7 @@
 /coverage
 /libpeerconnection.log
 package-lock.json
+ git_script.sh
 npm-debug.log
 yarn-error.log
 testem.log
