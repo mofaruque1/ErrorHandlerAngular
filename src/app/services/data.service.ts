@@ -12,13 +12,13 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData(postId: number) {
-    return this.http.get('https://jsonplaceholder.typicode.com/poss/' + postId);
+    return this.http.get('https://jsonplaceholder.typicode.com/posts/' + postId);
   }
 
   //reading the full response
   getDataFullResponse(postId: number): Observable<HttpResponse<any>> {
-    
-    return this.http.get<any>('https://jsonplaceholder.typicode.com/poss/' + postId, { observe: 'response' });
+
+    return this.http.get<any>('https://jsonplaceholder.typicode.com/posts/' + postId, { observe: 'response' });
   }
 
 

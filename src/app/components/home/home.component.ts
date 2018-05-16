@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.testErrorHandler();
-    //this.authentication("DSO8888@mailinator.com","rogers123");
   }
 
 
@@ -33,15 +32,15 @@ export class HomeComponent implements OnInit {
   // Test if the Global error handler works  
 
   testErrorHandler() {
-    this.dataservice.getData(1).subscribe((data) => {
+    this.dataservice.getDataFullResponse(1).subscribe((data) => {
       console.log(data);
       
-      if (data['id'] == 1) {
-        this.errorText = this.globalErrorHandler.handleError(4);
-      }
-      else {
-        console.log('Successful');
-      }
+      // if (data['id'] == 1) {
+      //   this.errorText = this.globalErrorHandler.handleError(4);
+      // }
+      // else {
+      //   console.log('Successful');
+      // }
     },
       (error) => this.errorText = this.globalErrorHandler.handleError(error)
       //(error)=>console.log(error.status) 
