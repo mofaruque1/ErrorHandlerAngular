@@ -8,12 +8,18 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     }
     handleError(error: any) {
-        //console.log('global error handler');
 
         if (error instanceof HttpErrorResponse) {
-            //console.log('File not found from the global error handler');
-            return 'File not found from the global error handler : '+error.status;
 
+            if (error.status / 100 == 4) {
+                return 'Client Side Error with status code : ' + error.status;
+            }
+            else if (error.status / 100 == 5) {
+                return 'Server Side Error with status code : ' + error.status;
+            }
+            else {
+                return 'Unknown Error';
+            }
         }
         else {
             console.log('some other error');
