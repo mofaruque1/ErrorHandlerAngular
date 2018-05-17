@@ -21,6 +21,18 @@ export class DataService {
     return this.http.get<any>('https://jsonplaceholder.typicode.com/posts/' + postId, { observe: 'response' });
   }
 
+  authenticateUser(username: string, password: string) {
+    return this.http.post('https://dpt-gatewaydev11.canadaeast.cloudapp.azure.com/user/login',
+      {
+        "username": username,
+        "password": password,
+        "realm": "ROGERS",
+        "type": "EXTERNAL",
+        "language": "en"
+      }
+    );
+  }
+
 
 
 
@@ -29,14 +41,3 @@ export class DataService {
 
 
 
-// authenticateUser(username: string, password: string) {
-//   return this.http.post('https://dpt-gatewaydev11.canadaeast.cloudapp.azure.com/user/login',
-//     {
-//       "username": username,
-//       "password": password,
-//       "realm": "ROGERS",
-//       "type": "EXTERNAL",
-//       "language": "en"
-//     }
-//   );
-// }
