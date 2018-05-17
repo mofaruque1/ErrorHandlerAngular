@@ -2,8 +2,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 //Link : https://angular.io/guide/http
-//Link : https://medium.com/codingthesmartway-com-blog/angular-4-3-httpclient-accessing-rest-web-services-with-angular-2305b8fd654b
-@Injectable()
+
 export class GlobalErrorHandler implements ErrorHandler {
 
     errorMessage: string;
