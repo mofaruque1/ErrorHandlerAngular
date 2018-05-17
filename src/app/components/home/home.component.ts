@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit {
     this.dataservice.getDataFullResponse(1).subscribe((data) => {
       console.log(data);
       
-      // if (data['id'] == 1) {
-      //   this.errorText = this.globalErrorHandler.handleError(4);
-      // }
-      // else {
-      //   console.log('Successful');
-      // }
+      if (data['id'] == 1) {
+        this.errorText = this.globalErrorHandler.handleError(4);
+      }
+      else {
+        console.log('Successful');
+      }
     },
       (error) => this.errorText = this.globalErrorHandler.handleError(error)
       //(error)=>console.log(error.status) 
